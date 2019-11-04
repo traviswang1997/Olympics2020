@@ -1,0 +1,228 @@
+.App {
+	margin-top: 15px;
+	
+}
+
+.App .navbar-brand {
+	font-weight: bold;
+	
+}
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Francois One', sans-serif;
+}
+
+body {
+background-color: #cfcfdb;
+background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('/wallpaper.jpg') no-repeat top center fixed;
+}
+
+nav{
+display: flex;
+justify-content: space-around;
+align-items: center;
+min-height: 8vh;
+top: 0;
+transition: top .3s ease-out,opacity .5s linear .3s;
+}
+
+/*----------------- FIRST BAR ------------------*/
+.bar-main{
+height: 10vh;
+background-color: #101417;
+transition: background-color .5s linear .3s;
+}
+
+.bar-main h1{
+color: #cfcfdb;
+display: inline-block;
+letter-spacing: 0.3px;
+text-transform: uppercase;
+text-align: center;
+font-weight: normal;
+letter-spacing: 10px;
+}
+
+img {
+padding: 5px;
+width: 69px;
+}
+
+a, a:active, a:visited {
+color: inherit;
+text-decoration: none;
+}
+/*Back Button*/
+svg {
+margin-left: auto;
+margin-right: 20px;
+}
+
+svg .background {
+fill: #101417;
+transition: fill 0.5s;
+}
+
+svg .arrow {
+fill: #cfcfdb;
+transition: fill 0.5s;
+}
+
+svg:hover .background {
+fill: #f2f2f2;
+}
+
+svg:hover .arrow {
+fill: #101417;
+}
+
+/*----------------- SECOND BAR ------------------*/
+.bar-secondary{
+height: 9vh;
+line-height: 9vh;
+top: 0;
+background-image: linear-gradient(#101417, transparent);
+transition: top .3s cubic-bezier(0, 1, 0.5, 1),height .3s cubic-bezier(0, 1, 0.5, 1),line-height .3s cubic-bezier(0, 1, 0.5, 1),transform .9s cubic-bezier(0, 1, 0.5, 1),opacity .5s linear .3s;
+text-align: center;
+font-weight: normal;
+position: relative;
+}
+
+.menu{
+display: flex;
+list-style: none;
+justify-content: space-around;
+text-align: center;
+overflow: hidden;
+}
+
+.menu li{
+display: inline-block;
+box-sizing: border-box;
+text-transform: uppercase;
+color: #9898ab;
+font-size: 16px;
+letter-spacing: 3px;
+}
+
+.menu li a{
+display: block;
+padding: 0 69px;
+transition: color 0.5s ease-out, background-size 0.5s ease;
+background-image: url('/button-hover.png');
+background-position: center;
+background-repeat: no-repeat;
+background-size: 0%;
+}
+
+.menu li:hover a {
+background-size: 120%;
+background-color: transparent;
+color: #101417;
+}
+
+.menu li a:active {
+background-color: #333333;
+color: #cfcfdb;
+}
+
+.side-button{
+display: none;
+}
+
+/*----------------- MOBILE SCREEN ------------------*/
+@media screen and (max-width:768px){
+body{
+	overflow-x: hidden;
+}
+
+.bar-secondary{
+	background-image: linear-gradient(#101417, transparent);
+}
+
+svg{
+	display: none;
+}
+
+.menu{
+	position: absolute;
+	right: 0px;
+	height: 50vh;
+	top: 8vh;
+	background-image: radial-gradient(rgba(16, 20, 23, 0.5) 30%, transparent, transparent);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(100%);
+	transition: transform 0.5s ease-in;
+}
+
+.menu li{
+	opacity: 0;
+}
+
+.menu li a{
+	padding: 0 20px;
+}
+
+.side-button{
+	display: block;
+	cursor: pointer;
+	transition: color 0.5s ease-out, background-size 0.5s ease;
+	background-image: url('/button-hover.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 0%;
+	margin-left: auto;
+	margin-right: 10px;
+	padding: 8px 8px;
+}
+
+.side-button div{
+	transition: background-color .5s;
+	width: 25px;
+	height: 3px;
+	margin: 5px;
+	background-color: #cfcfdb;
+	transition: all 0.3s ease;
+}
+
+.side-button:hover{
+	background-size: 150%;
+	background-color: transparent;
+}
+
+.side-button:hover div{
+	background-color: #101417;
+}
+}
+
+.menu-active{
+transform: translateX(0%);
+}
+
+@keyframes menuFadeIn {
+from{
+	opacity: 0;
+	transform: translateX(50%);
+}
+to{
+	opacity: 1;
+	transform: translateX(0%);
+}
+}
+
+.toggle .line1{
+transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2{
+opacity: 0;
+}
+
+.toggle .line3{
+transform: rotate(45deg) translate(-5px, -6px);
+}
